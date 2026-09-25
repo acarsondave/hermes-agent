@@ -165,7 +165,7 @@ def _cron_output_run_timestamp(path: Path) -> Optional[float]:
 
 def _cron_output_run_preview(path: Path, max_chars: int = 180) -> str:
     try:
-        raw = path.read_text(encoding="utf-8", errors="replace")
+        raw = path.read_text(encoding="utf-8-sig", errors="replace")
     except OSError:
         return ""
     preview = re.sub(r"\s+", " ", raw).strip()
